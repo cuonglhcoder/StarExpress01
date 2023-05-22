@@ -1,0 +1,133 @@
+.text-shadow {
+  text-shadow: -1px 0 white, 0 1px white;
+}
+
+.border-bottom {
+  border-bottom: white 1px solid;
+}
+
+.border {
+  border: white 1px solid;
+}
+
+.font-size08 {
+  font-size: 0.8rem;
+}
+
+.input-form {
+  width: 30%;
+  height: 2rem;
+}
+
+.background {
+  background-color: rgb(45, 45, 45);
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+.grid-container .grid-item {
+  text-align: center;
+  padding: 2px;
+}
+.grid-container .grid-item7 {
+  text-align: center;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  padding: 2px;
+}
+.grid-container .grid-item1 {
+  text-align: center;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  padding: 2px;
+}
+.grid-container .grid-item4 {
+  text-align: center;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  padding: 2px;
+}
+
+.container-fluid {
+  height: 100vh;
+}
+.container-fluid .nav {
+  height: 8vh;
+  background-color: rgb(0, 0, 0);
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+  border-bottom: white 1px solid;
+}
+.container-fluid .nav .nav-element {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container-fluid .nav .search-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container-fluid .main-content {
+  height: 92vh;
+  display: flex;
+  justify-content: space-between;
+}
+.container-fluid .main-content .left-side {
+  background-color: rgb(0, 0, 0);
+  border-right: white 1px solid;
+}
+.container-fluid .main-content .left-side .menu {
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container-fluid .main-content .left-side .menu a {
+  color: white;
+  text-decoration: none;
+  text-align: center;
+}
+.container-fluid .main-content .right-side {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(45, 45, 45);
+}
+.container-fluid .main-content .right-side .right-side-element {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+}
+.container-fluid .main-content .right-side .right-side-element .firstAndLastPoint {
+  margin: 0.5rem;
+  border-bottom: white 1px solid;
+  box-sizing: border-box;
+}
+.container-fluid .main-content .right-side .right-side-element .formCustomer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container-fluid .main-content .right-side .right-side-element .grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+.container-fluid .main-content .right-side .right-side-element .grid-container .grid-item {
+  text-align: center;
+  padding: 2px;
+}
+.container-fluid .main-content .right-side .right-side-element .grid-container .grid-item7 {
+  text-align: center;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  padding: 2px;
+}
+
+/*# sourceMappingURL=style.css.map */

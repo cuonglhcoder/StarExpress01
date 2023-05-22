@@ -1,0 +1,128 @@
+@import "variables.scss";
+.text-shadow{
+  text-shadow: -1px 0 white, 0 1px white;
+}
+.border-bottom{
+  border-bottom: $border-color;
+}
+.border{
+  border: $border-color;
+}
+.font-size08{
+  font-size: 0.8rem;
+}
+.input-form{
+  width: 30%;
+  height: 2rem;
+}
+.background{
+  background-color: $backgroud-color-dark-light;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  .grid-item {
+    text-align: center;
+    padding: 2px;
+  }
+  .grid-item7 {
+    text-align: center;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    padding: 2px;
+  }
+  .grid-item1 {
+    text-align: center;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    padding: 2px;
+  }
+  .grid-item4 {
+    text-align: center;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    padding: 2px;
+  }
+}
+.container-fluid{
+  height: 100vh;
+  .nav{
+    height: 8vh;
+    background-color: $backgroud-color;
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    border-bottom: $border-color;
+    .nav-element{
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .search-box{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  .main-content{
+    height: 92vh;
+    display: flex;
+    justify-content: space-between;
+    .left-side{
+
+      background-color: $backgroud-color;
+      border-right: $border-color;
+      .menu{
+        height: 3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        // border-bottom: $border-color;
+        a{
+          color: white;
+          text-decoration: none;
+          text-align: center;
+        }
+      }
+    }
+    .right-side{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: $backgroud-color-dark-light;
+      .right-side-element{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        height: 100%;
+        box-sizing: border-box;
+        .firstAndLastPoint{
+          margin: 0.5rem;
+          border-bottom: $border-color;
+          box-sizing: border-box;
+        }
+        .formCustomer{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .grid-container {
+          display: grid;
+          grid-template-columns: auto auto auto;
+          .grid-item {
+            text-align: center;
+            padding: 2px;
+          }
+          .grid-item7 {
+            text-align: center;
+            grid-column-start: 1;
+            grid-column-end: 3;
+            padding: 2px;
+          }
+        }
+      }
+
+    }
+  }
+}

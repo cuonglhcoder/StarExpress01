@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+            crossorigin="anonymous"
+    />
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+    />
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <title>Star Express</title>
+
+</head>
+<body class="body">
+<div class="container-fluid">
+    <header th:insert="fragment/header.html :: header"></header>
+    <div class="row main-content">
+        <aside class="col-2 left-side">
+            <div th:insert="fragment/aside.html :: div"></div>
+        </aside>
+         <div class="col-10">
+            <div class="row px-4">
+                <div class="title m-0 p-0 d-flex justify-content-between ">
+                    <h5 class="p-2">Danh sách phòng ban</h5>
+                    <a th:href="@{/Department/createNewDepart}"><button type="edit" class="btn btn-primary">Tạo phòng ban mới</button></a>
+                </div>
+
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Mã Phòng Ban</th>
+                        <th scope="col">Tên Phòng ban</th>
+                        <th scope="col">Handle</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="departments : ${departmentlist}">
+                        <th scope="row" th:text="${departments.getDepartmentId()}">1</th>
+                        <td th:text="${departments.getDepartmentCode()}">MKT</td>
+                        <td th:text="${departments.getDepartmentName()}">Marketing</td>
+                        <td>
+                            <button type="edit" class="btn btn-warning">Sửa</button>
+                            <button type="remove" class="btn btn-danger">Xóa</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script
+        src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+        integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
+        crossorigin="anonymous"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
+        integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
+        crossorigin="anonymous"
+></script>
+</body>
+</html>
