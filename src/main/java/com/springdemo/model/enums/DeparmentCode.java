@@ -10,12 +10,12 @@ public enum DeparmentCode {
     LOG,
     SAL;
 
-    private String departmentCode;
-     private DeparmentCode(String departmentCode) {
-         this.departmentCode = departmentCode;
-
-     }
-        public String getDepartmentCode() {
-            return departmentCode;
-        }
+//    private String departmentCode;
+//     private DeparmentCode(String departmentCode) {
+//         this.departmentCode = departmentCode;
+//
+//     }
+//        public String getDepartmentCode() {
+//            return departmentCode;
+//        }
 }

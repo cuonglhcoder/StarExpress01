@@ -41,7 +41,7 @@ public class departmentController {
     @GetMapping("/departmentMng")
     public String showDepart(Model model){
         List<Department> departmentlist = departmentService.findAll();
-        model.addAttribute("departmentlist", departmentlist);
+        model.addAttribute("departmentList", departmentlist);
         return "hrMng/departmentMng";
     }
 

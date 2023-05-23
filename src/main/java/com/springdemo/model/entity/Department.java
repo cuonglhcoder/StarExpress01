@@ -1,5 +1,6 @@
 package com.springdemo.model.entity;
 
+import com.springdemo.model.enums.DeparmentCode;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -14,7 +15,8 @@ public class Department {
     @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
     private Long departmentId;
     private String departmentName;
-    private String departmentCode;
+    @Enumerated(EnumType.STRING)
+    private DeparmentCode departmentCode;
     private LocalDateTime createdDate;
     private Boolean deleted;
     @OneToMany(mappedBy = "department")

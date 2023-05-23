@@ -27,6 +27,7 @@ public class Employee {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
     private Boolean deleted = false;
+    @Enumerated(EnumType.STRING)
     private EmployeeLevel level;
     @ManyToOne
     @JoinColumn(name = "department_id", referencedColumnName = "departmentId")
