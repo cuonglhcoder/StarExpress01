@@ -29,7 +29,7 @@ public class DepartmentServiceImp implements DepartmentService {
     }
 
     @Override
-    public Department findByNameAndDeletedFalse(String departmentName) {
+    public Department findByDepartmentNameAndDeletedFalse(String departmentName) {
         return departmentRepository.findByDepartmentNameAndDeletedFalse(departmentName);
     }
 }

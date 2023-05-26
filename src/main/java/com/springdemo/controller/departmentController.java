@@ -26,7 +26,7 @@ public class departmentController {
         this.employeeService = employeeService;
     }
 
-    @GetMapping("Department/createNewDepart")
+    @GetMapping("/Department/createNewDepart")
     public String showFormCreateNewDepart(Model model){
         model.addAttribute("departmentDto", new DepartmentDto());
         return "hrMng/createNewDept";
@@ -58,7 +58,7 @@ public class departmentController {
         return "hrMng/employeeList";
     }
 
-    @GetMapping("Employee/EmployeeList")
+    @GetMapping("Employee/AddEmployee")
     public String showAddNewEmployeeForm(Model model){
         List<String> departmentNameList = new ArrayList<>();
         List<Department> departmentList = departmentService.findAll();
@@ -70,17 +70,15 @@ public class departmentController {
         return "hrMng/createNewEmployee";
     }
 
-    @PostMapping("Employee/AddEmployee")
+    @PostMapping({"Employee/AddEmployee"})
     public String addNewEmployee(EmployeeDto employeeDto){
 
         String departmentName = employeeDto.getDepartmentName();
-        Department department = departmentService.findByNameAndDeletedFalse(departmentName);
-
+        Department department = departmentService.findByDepartmentNameAndDeletedFalse(departmentName);
         Employee employee = new Employee();
         BeanUtils.copyProperties(employeeDto, employee);
         employee.setDepartment(department);
-
         employeeService.save(employee);
-        return "hrMng/employeeList";
+        return "redirect:/employeeList";
     }
 }

@@ -32,7 +32,7 @@
             <div class="row px-4">
                 <div class="title m-0 p-0 d-flex justify-content-between ">
                     <h5 class="p-2">Danh sách phòng ban</h5>
-                    <a th:href="@{/Department/createNewDepart}"><button type="edit" class="btn btn-primary">Tạo phòng ban mới</button></a>
+                    <a class="btn btn-primary" th:href="@{/Department/createNewDepart}">Tạo phòng ban mới</a>
                 </div>
 
                 <table class="table">
@@ -45,7 +45,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="departments : ${departmentlist}">
+                    <tr th:each="departments : ${departmentList}">
                         <th scope="row" th:text="${departments.getDepartmentId()}">1</th>
                         <td th:text="${departments.getDepartmentCode()}">MKT</td>
                         <td th:text="${departments.getDepartmentName()}">Marketing</td>

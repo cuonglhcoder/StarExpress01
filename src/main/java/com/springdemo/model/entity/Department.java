@@ -3,6 +3,7 @@ package com.springdemo.model.entity;
 import com.springdemo.model.enums.DeparmentCode;
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NonNull;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
@@ -14,6 +15,7 @@ public class Department {
     @Id
     @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
     private Long departmentId;
+
     private String departmentName;
     @Enumerated(EnumType.STRING)
     private DeparmentCode departmentCode;

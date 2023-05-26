@@ -7,5 +7,5 @@ import java.util.List;
 public interface DepartmentService {
     List<Department> findAll();
     public void save(Department department);
-    public Department findByNameAndDeletedFalse(String name);
+    public Department findByDepartmentNameAndDeletedFalse(String name);
 }
