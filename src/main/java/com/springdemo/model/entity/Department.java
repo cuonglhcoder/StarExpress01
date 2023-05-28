@@ -1,7 +1,10 @@
 package com.springdemo.model.entity;
 
 import com.springdemo.model.enums.DeparmentCode;
+import com.springdemo.model.enums.DeptCategory;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
@@ -15,8 +18,10 @@ public class Department {
     @Id
     @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
     private Long departmentId;
-
+    @NotBlank(message = "{department.error.nulls}")
     private String departmentName;
+    @Enumerated(EnumType.STRING)
+    private DeptCategory deptCategory;
     @Enumerated(EnumType.STRING)
     private DeparmentCode departmentCode;
     private LocalDateTime createdDate;

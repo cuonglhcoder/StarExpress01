@@ -41,14 +41,16 @@
                         <th scope="col">ID</th>
                         <th scope="col">Mã Phòng Ban</th>
                         <th scope="col">Tên Phòng ban</th>
+                        <th scope="col">Cấp tổ chức</th>
                         <th scope="col">Handle</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr th:each="departments : ${departmentList}">
-                        <th scope="row" th:text="${departments.getDepartmentId()}">1</th>
-                        <td th:text="${departments.getDepartmentCode()}">MKT</td>
-                        <td th:text="${departments.getDepartmentName()}">Marketing</td>
+                        <th scope="row" th:text="${departments.getDepartmentId()}"></th>
+                        <td th:text="${departments.getDepartmentCode()}"></td>
+                        <td th:text="${departments.getDepartmentName()}"></td>
+                        <td th:text="${departments.getDeptCategory()}"></td>
                         <td>
                             <button type="edit" class="btn btn-warning">Sửa</button>
                             <button type="remove" class="btn btn-danger">Xóa</button>

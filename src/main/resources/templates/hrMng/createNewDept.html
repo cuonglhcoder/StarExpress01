@@ -37,18 +37,18 @@
           <form class="p-3" method="post" th:action="@{/Department/createNewDepart}"
           th:object="${departmentDto}">
             <div class="my-3">
-              <label for="departmentName" class="form-label"
-              >Tên phòng ban</label
+              <label for="departmentName"  class="form-label "
+              >Tên phòng ban <span class="text-danger">*</span></label
               >
               <input
                       type="text"
-                      class="form-control"
+                      class="form-control "
                       id="departmentName"
                       placeholder="Tên Phòng ban"
-                      name="departmentName"
-                      th:field="*{departmentName}"
-              />
+                      th:field="*{departmentName}">
+              <span class="text-danger" th:errors="*{departmentName}"></span>
             </div>
+
             <div class="my-3">
               <label for="deptCode" class="form-label"
               >Mã phòng ban</label>
@@ -62,7 +62,20 @@
                         th:text="${deptCode.getValue()}"
                 ></option>
               </select>
-
+            </div>
+            <div class="my-3">
+              <label for="deptCategory" class="form-label"
+              >Cấp tổ chức</label>
+              <select  th:field="*{deptCategory}"
+                       class="form-select"
+                       aria-label="Default select example"
+                       id="deptCategory"
+              >
+                <option th:each="deptCat: ${T(com.springdemo.model.enums.DeptCategory).values()}"
+                        th:value="${deptCat.name()}"
+                        th:text="${deptCat.getValue()}"
+                ></option>
+              </select>
             </div>
             <div class="d-flex justify-content-between" >
               <button type="submit" class="btn btn-primary">Tạo</button>

@@ -1,16 +1,17 @@
 package com.springdemo.model.dto;
 
-import com.springdemo.model.entity.Department;
 import com.springdemo.model.enums.EmployeeLevel;
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.Nationalized;
+
 import java.time.LocalDateTime;
+
 @Getter
 @Setter
-public class EmployeeDto {
+public class EditEmployeeDto {
     private Long id;
     @Nationalized
     @NotBlank(message = "{employee.error.nulls}")

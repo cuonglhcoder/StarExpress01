@@ -16,12 +16,5 @@ public enum DeparmentCode {
     public String getValue(){
         return  this.value;
     }
-//    private String departmentCode;
-//     private DeparmentCode(String departmentCode) {
-//         this.departmentCode = departmentCode;
-//
-//     }
-//        public String getDepartmentCode() {
-//            return departmentCode;
-//        }
+
 }

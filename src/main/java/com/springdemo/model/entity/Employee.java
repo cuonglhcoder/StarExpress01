@@ -18,6 +18,7 @@ public class Employee {
     private Long id;
     @Nationalized
     private String name;
+    private String username;
     @Column(unique = true)
     private String email;
     private String password;
@@ -26,7 +27,7 @@ public class Employee {
     private String address;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
-    private Boolean deleted = false;
+    private Boolean deleted;
     @Enumerated(EnumType.STRING)
     private EmployeeLevel level;
     @ManyToOne
