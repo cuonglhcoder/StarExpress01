@@ -34,6 +34,7 @@
                     <h5 class="p-2">Danh sách nhân viên</h5>
                     <a class="btn btn-primary" th:href="@{Employee/AddEmployee}">Nhập Nhân viên mới</a>
                 </div>
+                <span class="text-primary" th:if="${successMessage}" th:text="#{${successMessage}}"></span>
 
                 <table class="table">
                     <thead>
@@ -48,7 +49,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="employee, iter : ${employeeList}">
+                    <tr th:each="employee, iter : ${employeePage.getContent()}">
                         <th scope="col" th:text="${iter.index +1}">ID</th>
                         <th scope="col" th:text="${employee.id}">ID</th>
                         <th scope="col" th:text="${employee.name}">Tên nhân viên</th>
@@ -62,6 +63,23 @@
                     </tr>
                     </tbody>
                 </table>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item"><a class="page-link"
+                                                 th:if="${employeePage.hasPrevious()}"
+                                                 th:href="@{'/employeeList?page=' + ${employeePage.previousPageable().getPageNumber +1}}"
+                                                tabindex="-1">Previous</a></li>
+                        <li class="page-item" th:each="page: ${#numbers.sequence(1, employeePage.getTotalPages())}">
+                            <a class="page-link"    th:href="@{'/employeeList?page=' + ${page}}"
+                                                    th:text="${page}"
+                                                    th:classappend="${page == employeePage.getNumber() + 1} ? 'active' : ''">
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link"
+                                                 th:if="${employeePage.hasNext()}"
+                                                 th:href="@{'/employeeList?page=' +${employeePage.nextPageable().getPageNumber +1}}">Next</a></li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </div>
