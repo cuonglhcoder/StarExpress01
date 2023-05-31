@@ -12,6 +12,7 @@ import jakarta.validation.Valid;
 import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -66,9 +67,18 @@ public class departmentController {
 
     @GetMapping("/employeeList")
     public String showEmployee(Model model,
-                               @RequestParam (required = false, defaultValue = AppConstant.DEFAULT_PAGE) Integer page,
-                               @RequestParam (required = false, defaultValue = AppConstant.DEFAULT_PAGE_SIZE) Integer size){
-        PageRequest pageRequest = PageRequest.of(page-1, size);
+               @RequestParam (required = false, defaultValue = AppConstant.DEFAULT_PAGE) Integer page,
+               @RequestParam (required = false, defaultValue = AppConstant.DEFAULT_PAGE_SIZE) Integer size,
+               @RequestParam (required = false, name = "sort",
+                       defaultValue = AppConstant.DEFAULT_SORT_FIELD) List<String>sorts){
+
+        List<Sort.Order> orderList = new ArrayList<>();
+        for(String sort : sorts){
+           boolean isAsc = sort.startsWith("-");
+              orderList.add(isAsc ? Sort.Order.asc(sort.substring(1)) : Sort.Order.desc(sort));
+        }
+
+        PageRequest pageRequest = PageRequest.of(page-1, size, Sort.by(orderList));
         Page<Employee> employeePage = employeeService.findEmployeePaging(pageRequest) ;
         model.addAttribute("employeePage", employeePage);
         return "hrMng/employeeList";

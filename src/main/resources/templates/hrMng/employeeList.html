@@ -30,9 +30,36 @@
         </aside>
          <div class="col-10">
             <div class="row px-4">
-                <div class="title m-0 p-0 d-flex justify-content-between ">
-                    <h5 class="p-2">Danh sách nhân viên</h5>
-                    <a class="btn btn-primary" th:href="@{Employee/AddEmployee}">Nhập Nhân viên mới</a>
+                <div class=" col-12 title mt-2">
+                    <div class="row d-flex justify-content-between m-0 p-0">
+                    <div class="col-4 d-flex justify-content-between m-0 p-0">
+                        <h4 class="p-2">Danh sách nhân viên</h4>
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination">
+                                <li class="page-item"><a class="page-link"
+                                                         th:if="${employeePage.hasPrevious()}"
+                                                         th:href="@{'/employeeList?page=' + ${employeePage.previousPageable().getPageNumber +1}}"
+                                                         tabindex="-1">Previous</a></li>
+                                <li class="page-item" th:each="page: ${#numbers.sequence(1, employeePage.getTotalPages())}">
+                                    <a class="page-link"    th:href="@{'/employeeList?page=' + ${page}}"
+                                       th:text="${page}"
+                                       th:classappend="${page == employeePage.getNumber() + 1} ? 'active' : ''">
+                                    </a>
+                                </li>
+                                <li class="page-item"><a class="page-link"
+                                                         th:if="${employeePage.hasNext()}"
+                                                         th:href="@{'/employeeList?page=' +${employeePage.nextPageable().getPageNumber +1}}">Next</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-6">
+
+                    </div>
+                    <div class="col-2">
+                        <a class="btn btn-primary" th:href="@{Employee/AddEmployee}">Nhập Nhân viên mới</a>
+                    </div>
+                    </div>
+
                 </div>
                 <span class="text-primary" th:if="${successMessage}" th:text="#{${successMessage}}"></span>
 
@@ -63,23 +90,7 @@
                     </tr>
                     </tbody>
                 </table>
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination">
-                        <li class="page-item"><a class="page-link"
-                                                 th:if="${employeePage.hasPrevious()}"
-                                                 th:href="@{'/employeeList?page=' + ${employeePage.previousPageable().getPageNumber +1}}"
-                                                tabindex="-1">Previous</a></li>
-                        <li class="page-item" th:each="page: ${#numbers.sequence(1, employeePage.getTotalPages())}">
-                            <a class="page-link"    th:href="@{'/employeeList?page=' + ${page}}"
-                                                    th:text="${page}"
-                                                    th:classappend="${page == employeePage.getNumber() + 1} ? 'active' : ''">
-                            </a>
-                        </li>
-                        <li class="page-item"><a class="page-link"
-                                                 th:if="${employeePage.hasNext()}"
-                                                 th:href="@{'/employeeList?page=' +${employeePage.nextPageable().getPageNumber +1}}">Next</a></li>
-                    </ul>
-                </nav>
+
             </div>
         </div>
     </div>
