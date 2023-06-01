@@ -32,11 +32,11 @@
             <div class="row px-4">
                 <div class=" col-12 title mt-2">
                     <div class="row d-flex justify-content-between m-0 p-0">
-                    <div class="col-4 d-flex justify-content-between m-0 p-0">
-                        <h4 class="p-2">Danh sách nhân viên</h4>
+                    <div class="col-5 d-flex justify-content-between m-0 p-0">
+                        <h5 >Danh sách nhân viên</h5>
                         <nav aria-label="Page navigation example">
                             <ul class="pagination">
-                                <li class="page-item"><a class="page-link"
+                                <li class="page-item "><a class="page-link font-size-small"
                                                          th:if="${employeePage.hasPrevious()}"
                                                          th:href="@{'/employeeList?page=' + ${employeePage.previousPageable().getPageNumber +1}}"
                                                          tabindex="-1">Previous</a></li>
@@ -52,10 +52,10 @@
                             </ul>
                         </nav>
                     </div>
-                    <div class="col-6">
+                    <div class="col-4">
 
                     </div>
-                    <div class="col-2">
+                    <div class="col-3">
                         <a class="btn btn-primary" th:href="@{Employee/AddEmployee}">Nhập Nhân viên mới</a>
                     </div>
                     </div>
@@ -72,6 +72,8 @@
                         <th scope="col">Email</th>
                         <th scope="col">Mật khẩu</th>
                         <th scope="col">Phone</th>
+                        <th scope="col">Quê quán</th>
+                        <th scope="col">Chi tiết</th>
                         <th scope="col">Action</th>
                     </tr>
                     </thead>
@@ -83,9 +85,11 @@
                         <th scope="col" th:text="${employee.email}">Email</th>
                         <th scope="col" th:text="${employee.password}">Mật khẩu</th>
                         <th scope="col" th:text="${employee.phone}">Phone</th>
+                        <th scope="col" th:text="${employee.address}">Address</th>
+                        <th scope="col"> <a href="#">Chi tiết</a> </th>
                         <th scope="col" >
-                            <a th:href="@{/Employee/editEmployee/{id}(id=${employee.id})}"><button type="edit" class="btn btn-warning">Sửa</button></a>
-                            <a th:href="@{/Employee/deleteEmployee/{id}(id=${employee.id})}"><button type="delete" class="btn btn-danger">Xóa</button></a>
+                            <a th:href="@{/employee/editEmployee/{id}(id=${employee.id})}"><button type="edit" class="btn btn-warning">Sửa</button></a>
+                            <a th:href="@{/employee/delete-employee/{id}(id=${employee.id})}"><button type="delete" class="btn btn-danger">Xóa</button></a>
                         </th>
                     </tr>
                     </tbody>

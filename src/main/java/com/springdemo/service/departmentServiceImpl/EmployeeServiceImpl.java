@@ -5,6 +5,7 @@ import com.springdemo.repository.EmployeeRepository;
 import com.springdemo.service.EmployeeService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -28,6 +29,11 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public Page<Employee> findEmployeePaging(Pageable pageable) {
         return employeeRepository.findAll(pageable);
+    }
+
+    @Override
+    public Page<Employee> findEmployeePaging(Specification<Employee> spec, Pageable pageable) {
+        return employeeRepository.findAll(spec, pageable);
     }
 
     @Override
